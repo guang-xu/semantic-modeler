@@ -36,6 +36,75 @@
       "aggregation" : {
         "rule" : "SUM"
       }
+    }, {
+      "name" : "Actual Unit Price",
+      "dataType" : "NUMERIC",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "LOGICAL_COLUMNS",
+        "logicalExpression" : {
+          "expressionTemplate" : "%1 /%2",
+          "expressionObjects" : [ "logicalColumn:Sample Sales BM.F1 Revenue.Product Type Revenue", "logicalColumn:Sample Sales BM.F1 Revenue.Units" ]
+        }
+      }
+    }, {
+      "name" : "Revenue Rank",
+      "dataType" : "INT",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "LOGICAL_COLUMNS",
+        "logicalExpression" : {
+          "expressionTemplate" : "RANK(%1 )",
+          "expressionObjects" : [ "logicalColumn:Sample Sales BM.F1 Revenue.Product Type Revenue" ]
+        }
+      }
+    }, {
+      "name" : "Product Total Revenue",
+      "dataType" : "NUMERIC",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "F1 Revenue",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:MySampleSalesDatabase.BISAMPLE.F1 Revenue.REVENUE" ]
+          }
+        } ]
+      },
+      "aggregation" : {
+        "rule" : "NONE",
+        "aggregateByLevels" : [ "logicalLevel:Sample Sales BM.D2 Products.Total" ]
+      }
+    }, {
+      "name" : "Product Type Revenue",
+      "dataType" : "NUMERIC",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "PHYSICAL_COLUMNS",
+        "physicalMappings" : [ {
+          "logicalTableSource" : "F1 Revenue",
+          "physicalExpression" : {
+            "expressionTemplate" : "%1",
+            "expressionObjects" : [ "physicalColumn:MySampleSalesDatabase.BISAMPLE.F1 Revenue.REVENUE" ]
+          }
+        } ]
+      },
+      "aggregation" : {
+        "rule" : "NONE",
+        "aggregateByLevels" : [ "logicalLevel:Sample Sales BM.D2 Products.Product Type" ]
+      }
+    }, {
+      "name" : "Product Share",
+      "dataType" : "NUMERIC",
+      "writeable" : false,
+      "logicalColumnSource" : {
+        "derivedFrom" : "LOGICAL_COLUMNS",
+        "logicalExpression" : {
+          "expressionTemplate" : "%1 /%2",
+          "expressionObjects" : [ "logicalColumn:Sample Sales BM.F1 Revenue.Revenue", "logicalColumn:Sample Sales BM.F1 Revenue.Product Total Revenue" ]
+        }
+      }
     } ],
     "logicalTableSources" : [ {
       "name" : "F1 Revenue",

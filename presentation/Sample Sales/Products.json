@@ -25,6 +25,36 @@
     }, {
       "name" : "Type Key",
       "sourceLogicalColumn" : "logicalColumn:Sample Sales BM.D2 Products.Type Key"
+    } ],
+    "hierarchies" : [ {
+      "name" : "H1",
+      "sourceLogicalTable" : "logicalTable:Sample Sales BM.D2 Products",
+      "localization" : { },
+      "levels" : [ {
+        "name" : "Total",
+        "sourceLogicalLevel" : "logicalLevel:Sample Sales BM.D2 Products.Total",
+        "localization" : { }
+      }, {
+        "name" : "Product Brands",
+        "sourceLogicalLevel" : "logicalLevel:Sample Sales BM.D2 Products.Product Brands",
+        "displayColumn" : "presentationColumn:Sample Sales.Products.Brand",
+        "localization" : { }
+      }, {
+        "name" : "Product LOB",
+        "sourceLogicalLevel" : "logicalLevel:Sample Sales BM.D2 Products.Product LOB",
+        "displayColumn" : "presentationColumn:Sample Sales.Products.Line of Business",
+        "localization" : { }
+      }, {
+        "name" : "Product Type",
+        "sourceLogicalLevel" : "logicalLevel:Sample Sales BM.D2 Products.Product Type",
+        "displayColumn" : "presentationColumn:Sample Sales.Products.Type",
+        "localization" : { }
+      }, {
+        "name" : "Detail",
+        "sourceLogicalLevel" : "logicalLevel:Sample Sales BM.D2 Products.Detail",
+        "displayColumn" : "presentationColumn:Sample Sales.Products.Product",
+        "localization" : { }
+      } ]
     } ]
   }
 }
