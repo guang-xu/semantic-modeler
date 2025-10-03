@@ -3,7 +3,7 @@
     "name" : "Base Facts",
     "presentationColumns" : [ {
       "name" : "Revenue",
-      "sourceLogicalColumn" : "logicalColumn:Sample Sales BM.F1 Revenue.Product Type Revenue"
+      "sourceLogicalColumn" : "logicalColumn:Sample Sales BM.F1 Revenue.Revenue"
     }, {
       "name" : "Units",
       "sourceLogicalColumn" : "logicalColumn:Sample Sales BM.F1 Revenue.Units"
